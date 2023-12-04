@@ -7,7 +7,7 @@
 
     <div class="py-12">
         @if (Session::has('success'))
-            <div class="fixed bottom-5 right-10 rounded-md bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+            <div class="fixed z-10 bottom-5 right-10 rounded-md bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
                 role="alert">
                 <div class="flex">
                     <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4"
@@ -65,4 +65,8 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script type="module" src="{{ Vite::asset('resources/js/alerts.js') }}"></script>
+    @endpush
 </x-app-layout>
