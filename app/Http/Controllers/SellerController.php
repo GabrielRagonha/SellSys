@@ -32,7 +32,7 @@ class SellerController extends Controller
     {
         $request->validate([
             'name'    => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:sellers',
         ]);
 
         Seller::create($request->all());

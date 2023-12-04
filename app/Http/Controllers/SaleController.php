@@ -25,9 +25,9 @@ class SaleController extends Controller
     {
         $request->validate([
             'id_seller'    => 'required',
-            'sale_value' => 'required',
+            'sale_value' => 'required|numeric|between:0,999999.99',
         ]);
-
+    
         Sale::create($request->all());
 
         return redirect()->route("dashboard")->with('success', 'Venda adicionada com sucesso');
