@@ -14,13 +14,11 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+                <div class="p-6">
                     @if ($sellers->count() > 0)
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            <table
-                                class="rounded-lg w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <div class="mb-4 relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="rounded-lg w-full text-sm text-left">
+                                <thead class="text-xs text-black uppercase bg-table-head">
                                     <tr>
                                         <th class="px-6 py-3">ID</th>
                                         <th class="px-6 py-3">Nome</th>
@@ -30,26 +28,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sellers as $seller)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                            <td
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $seller->id }}</td>
+                                    @foreach ($sellers as $key => $seller)
+                                        <tr class="text-black {{ $key % 2 ? 'bg-table-row' : 'bg-white' }}">
+                                            <td class="px-6 py-4">{{ $seller->id }}</td>
                                             <td class="px-6 py-4">{{ $seller->name }}</td>
                                             <td class="px-6 py-4">{{ $seller->email }}</td>
                                             <td class="px-6 py-4">{{ date('d/m/Y', strtotime($seller->created_at)) }}
                                             </td>
                                             <td class="px-6 py-4">
-                                                <div>
+                                                <div class="flex flex-col gap-2">
                                                     <a href="{{ route('seller.show', $seller->id) }}" type="button"
-                                                        class="btn btn-secondary">Detalhes</a>
+                                                        class="flex text-white items-center justify-center w-full bg-blue-500 rounded-sm py-1 text-sm">Detalhes</a>
                                                     <a href="{{ route('seller.edit', $seller->id) }}" type="button"
-                                                        class="btn btn-warning">Editar</a>
+                                                        class="flex text-white items-center justify-center w-full bg-yellow-500 rounded-sm py-1 text-sm">Editar</a>
                                                     <form action="{{ route('seller.destroy', $seller->id) }}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-danger m-0">Excluir</button>
+                                                        <button
+                                                            class="flex text-white items-center justify-center w-full bg-red-500 rounded-sm py-1 text-sm">Excluir</button>
                                                     </form>
                                                 </div>
                                             </td>

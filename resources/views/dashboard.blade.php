@@ -14,13 +14,11 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
+                <div class="p-6">
                     @if ($sales->count() > 0)
-                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            <table
-                                class="rounded-lg w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                <thead
-                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <div class="mb-4 relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="rounded-lg w-full text-sm text-left">
+                                <thead class="text-xs text-black uppercase bg-table-head">
                                     <tr>
                                         <th class="px-6 py-3">ID da venda</th>
                                         <th class="px-6 py-3">Vendedor</th>
@@ -31,11 +29,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($sales as $sale)
-                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                            <td
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{ $sale->id }}</td>
+                                    @foreach ($sales as $key => $sale)
+                                        <tr class="text-black {{ $key % 2 ? 'bg-table-row' : 'bg-white' }}">
+                                            <td class="px-6 py-4">{{ $sale->id }}</td>
                                             <td class="px-6 py-4">{{ $sale->name }}</td>
                                             <td class="px-6 py-4">{{ $sale->email }}</td>
                                             <td class="px-6 py-4">R$ {{ number_format($sale->commission, 2, ',', '.') }}
@@ -49,6 +45,7 @@
                             </table>
 
                         </div>
+
                         {{ $sales->links() }}
                     @else
                         <p>Nenhuma venda cadastrada!
