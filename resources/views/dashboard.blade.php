@@ -59,7 +59,7 @@
 
                         {{ $sales->links() }}
                     @else
-                        <p>Nenhuma venda cadastrada!
+                        <p>Nenhuma venda cadastrada!</p>
                     @endif
                 </div>
             </div>
