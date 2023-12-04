@@ -14,11 +14,20 @@ SellSys é um sistema feito com Laravel designado para o gerenciamento de vendas
 ## Requisitos
 
 - Docker
+- WSL2 ou SO linux
 
-## Comandos de inicialização
+## Passo a passo para inicialização
 
+- git clone git@github.com:GabrielRagonha/SellSys.git
+- cp .env.example .env
+- [Comandos da documentação](https://laravel.com/docs/10.x/sail#installing-composer-dependencies-for-existing-projects)
+- sudo su
 - ./vendor/bin/sail up -d
+- chmod -R 777 ./
+- ./vendor/bin/sail php artisan key:generate
 - ./vendor/bin/sail npm i
+- ./vendor/bin/sail php artisan migrate
+- ./vendor/bin/sail php artisan db:seed
 - ./vendor/bin/sail npm run dev
 
 ## Acessar emails
