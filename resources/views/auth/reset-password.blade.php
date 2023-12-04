@@ -31,10 +31,17 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="flex flex-col gap-2 items-center justify-end mt-4">
             <x-primary-button>
                 {{ __('Alterar Senha') }}
             </x-primary-button>
+
+            @if (Route::has('login'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-blue-600"
+                    href="{{ route('login') }}">
+                    {{ __('Voltar para o login') }}
+                </a>
+            @endif
         </div>
     </form>
 </x-guest-layout>
