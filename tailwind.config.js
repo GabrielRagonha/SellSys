@@ -23,6 +23,8 @@ export default {
                 "secondary-blue": {
                     600: "#43A0D6",
                 },
+                "table-head": "#D8D8D8",
+                "table-row": "#F1F1F1",
             },
         },
     },
