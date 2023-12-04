@@ -18,7 +18,7 @@ SellSys é um sistema feito com Laravel designado para o gerenciamento de vendas
 
 ## Passo a passo para inicialização
 
-- git clone git@github.com:GabrielRagonha/SellSys.git
+- git clone git@github.com:GabrielRagonha/SellSys.git && cd SellSys
 - cp .env.example .env
 - [Comandos da documentação](https://laravel.com/docs/10.x/sail#installing-composer-dependencies-for-existing-projects)
 - sudo su
